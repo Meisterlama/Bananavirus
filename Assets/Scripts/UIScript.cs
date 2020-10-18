@@ -2,6 +2,7 @@
 using System.Linq;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Button = UnityEngine.UIElements.Button;
 using Slider = UnityEngine.UI.Slider;
@@ -369,5 +370,10 @@ public class UIScript : MonoBehaviour
     public void Quit()
     {
         Application.Quit();
+    }
+
+    public void LoadLevel(int levelIndex)
+    {
+        SceneManager.LoadScene(levelIndex);
     }
 }
