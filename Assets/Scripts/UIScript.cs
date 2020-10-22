@@ -10,6 +10,7 @@ using Slider = UnityEngine.UI.Slider;
 internal struct TopPanelInfo
 {
     public TextMeshProUGUI Money;
+    public TextMeshProUGUI RemainingTime;
 }
 
 internal struct GenericPanelInfo
@@ -81,6 +82,7 @@ public class UIScript : MonoBehaviour
         m_GameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         m_TopPanel = transform.Find("TopPanel").gameObject;
         m_TopPanelInfo.Money = m_TopPanel.transform.Find("Money").gameObject.GetComponent<TextMeshProUGUI>();
+        m_TopPanelInfo.RemainingTime = m_TopPanel.transform.Find("RemainingTime").gameObject.GetComponent<TextMeshProUGUI>();
 
         m_GenericPanel = transform.Find("GenericPanel").gameObject;
         m_GenericPanelInfo.Name = m_GenericPanel.transform.Find("Name").GetComponent<TextMeshProUGUI>();
@@ -147,7 +149,8 @@ public class UIScript : MonoBehaviour
 
     private void Update()
     {
-        m_TopPanelInfo.Money.text = $"Current Banana Cash : {m_GameManager.currentMoney}";
+        m_TopPanelInfo.Money.text = $"Banana Cash : {m_GameManager.currentMoney}";
+        m_TopPanelInfo.RemainingTime.text = $"Temps Restant : {m_GameManager.gameLength - (int)m_GameManager.elapsedTime}sec";
         if (m_CurrentFactory)
         {
             UpdateFactoryPanel();
@@ -205,8 +208,8 @@ public class UIScript : MonoBehaviour
 
         m_FactoryPanelInfo.SelectedRecipeText.text =
             $"Max : {m_CurrentFactory.MaxProductionQuantity(currentRecipe)}\n" +
-            $"Price : {currentResource.price}$\n" +
-            $"Time : {currentResource.timeToProduce}s";
+            $"Prix : {currentResource.price}$\n" +
+            $"Temps : {currentResource.timeToProduce}s";
         UpdateFactoryCommandPrice();
     }
 
@@ -219,11 +222,21 @@ public class UIScript : MonoBehaviour
             ? m_CurrentFactory.FactoryInventory.Aspidos
             : m_CurrentFactory.FactoryInventory.Dolifront;
         float recipeCount = m_FactoryPanelInfo.SelectedRecipeSlider.value;
-        
-        m_FactoryPanelInfo.Total.text =
-            $"Total {currentResource.type.ToString()}: {recipeCount}\n" +
-            $"Total Price : {(recipeCount * (currentResource.price)):F2}$\n" +
-            $"Total Time : {(recipeCount * (currentResource.timeToProduce)):F2}s\n";
+
+        if (recipeCount * (currentResource.price) <= m_GameManager.currentMoney)
+        {
+            m_FactoryPanelInfo.Total.text =
+                $"Total {currentResource.type.ToString()}: {recipeCount}\n" +
+                $"Prix Total : {(recipeCount * (currentResource.price)):F2}$\n" +
+                $"Temps Total : {(recipeCount * (currentResource.timeToProduce)):F2}s\n";
+        }
+        else
+        {
+            m_FactoryPanelInfo.Total.text =
+                $"Total {currentResource.type.ToString()}: {recipeCount}\n" +
+                $"Prix Total : <color=\"red\">{(recipeCount * (currentResource.price)):F2}$</color>\n" +
+                $"Temps Total : {(recipeCount * (currentResource.timeToProduce)):F2}s\n";
+        }
     }
 
     public void MakeFactoryCommand()
@@ -235,6 +248,9 @@ public class UIScript : MonoBehaviour
             ? m_CurrentFactory.FactoryInventory.Aspidos
             : m_CurrentFactory.FactoryInventory.Dolifront;
         int recipeCount = (int) m_FactoryPanelInfo.SelectedRecipeSlider.value;
+        
+        float totalPrice = (recipeCount * (currentResource.price));
+        if (m_GameManager.currentMoney < totalPrice) return;
 
         m_CurrentFactory.FactoryInventory.Aspinium.quantity -= (int)currentRecipe.aspiniumQuantity * recipeCount;
         m_CurrentFactory.FactoryInventory.Dolinium.quantity -= (int)currentRecipe.doliniumQuantity * recipeCount;
@@ -292,21 +308,21 @@ public class UIScript : MonoBehaviour
         float doliniumCount = m_SupplierPanelInfo.DoliniumSlider.value;
         float totalPrice = (aspiniumCount * (m_CurrentSupplier.aspinium.price) +
                             doliniumCount * (m_CurrentSupplier.dolinium.price));
-        if (totalPrice < m_GameManager.currentMoney)
+        if (totalPrice <= m_GameManager.currentMoney)
         {
             m_SupplierPanelInfo.Total.text =
-                $"Total Aspinium: {aspiniumCount}\n" +
-                $"Total Dolinium: {doliniumCount}\n" +
-                $"Total Price : {totalPrice:F2}$\n" +
-                $"Total Time : {Mathf.Max(aspiniumCount * (m_CurrentSupplier.aspinium.timeToProduce), doliniumCount * (m_CurrentSupplier.dolinium.timeToProduce)):F2}s\n";
+                $"Aspinium Total: {aspiniumCount}\n" +
+                $"Dolinium Total: {doliniumCount}\n" +
+                $"Prix Total : {totalPrice:F2}$\n" +
+                $"Temps Total : {Mathf.Max(aspiniumCount * (m_CurrentSupplier.aspinium.timeToProduce), doliniumCount * (m_CurrentSupplier.dolinium.timeToProduce)):F2}s\n";
         }
         else
         {
             m_SupplierPanelInfo.Total.text =
-                $"Total Aspinium: {aspiniumCount}\n" +
-                $"Total Dolinium: {doliniumCount}\n" +
-                $"Total Price : <color=\"red\">{totalPrice:F2}$</color>\n" +
-                $"Total Time : {Mathf.Max(aspiniumCount * (m_CurrentSupplier.aspinium.timeToProduce), doliniumCount * (m_CurrentSupplier.dolinium.timeToProduce)):F2}s\n";
+                $"Aspinium Total: {aspiniumCount}\n" +
+                $"Dolinium Total: {doliniumCount}\n" +
+                $"Prix Total : <color=\"red\">{totalPrice:F2}$</color>\n" +
+                $"Temps Total : {Mathf.Max(aspiniumCount * (m_CurrentSupplier.aspinium.timeToProduce), doliniumCount * (m_CurrentSupplier.dolinium.timeToProduce)):F2}s\n";
         }
         
     }
@@ -316,6 +332,11 @@ public class UIScript : MonoBehaviour
         List<Factory> factories = m_GameManager.factories;
         int aspiniumCount = (int) m_SupplierPanelInfo.AspiniumSlider.value;
         int doliniumCount = (int) m_SupplierPanelInfo.DoliniumSlider.value;
+        
+        float totalPrice = (aspiniumCount * (m_CurrentSupplier.aspinium.price) +
+                            doliniumCount * (m_CurrentSupplier.dolinium.price));
+        if (m_GameManager.currentMoney < totalPrice) return;
+        
         m_CurrentSupplier.MakeCommand(factories[m_SupplierPanelInfo.FactorySelect.value], aspiniumCount, doliniumCount);
         m_SupplierPanelInfo.AspiniumSlider.value = 0;
         m_SupplierPanelInfo.DoliniumSlider.value = 0;
@@ -333,21 +354,21 @@ public class UIScript : MonoBehaviour
     private void UpdateCityPanel()
     {
         m_GenericPanelInfo.Name.text = m_CurrentCity.name;
-        m_CityPanelInfo.HabitantInfo.text = $"Infected Habitants : {m_CurrentCity.shownInfectedHabitants}\n" +
-                                            $"Total Habitants : {m_CurrentCity.totalHabitants}\n";
+        m_CityPanelInfo.HabitantInfo.text = $"Habitants infectes : {m_CurrentCity.shownInfectedHabitants}\n" +
+                                            $"Habitants total : {m_CurrentCity.totalHabitants}\n";
 
         m_CityPanelInfo.Aspidos.text = $"<align=\"center\"><i><b>Aspidos</b></i></align>\n" +
                                        $"<size=30>\n" +
-                                       $"Needed:\n" +
+                                       $"Besoin:\n" +
                                        $"<align=\"right\">{m_CurrentCity.shownAspidosInfectedHabitants}</align>\n" +
-                                       $"Availaible:\n" +
+                                       $"Dispo:\n" +
                                        $"<align=\"right\">{m_CurrentCity.aspidos.quantity}</align>";
 
         m_CityPanelInfo.Dolifront.text = $"<align=\"center\"><i><b>Dolifront</b></i></align>\n" +
                                          $"<size=30>\n" +
-                                         $"Needed:\n" +
+                                         $"Besoin:\n" +
                                          $"<align=\"right\">{m_CurrentCity.shownDolifrontInfectedHabitants}</align>\n" +
-                                         $"Availaible:\n" +
+                                         $"Dispo:\n" +
                                          $"<align=\"right\">{m_CurrentCity.dolifront.quantity}</align>";
     }
 

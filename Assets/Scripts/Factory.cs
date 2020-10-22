@@ -100,8 +100,10 @@ public class Factory : MonoBehaviour
 
     // recipeCount * (currentResource.timeToProduce),
     // (int) (recipeCount * (currentResource.price))
-    public bool MakeCommand(City targetCity, EGameResourceType resourceType, int resourceCount)
+    public void MakeCommand(City targetCity, EGameResourceType resourceType, int resourceCount)
     {
+        if (resourceCount == 0) return;
+        
         GameResource currentResource;
         switch (resourceType)
         {
@@ -119,12 +121,11 @@ public class Factory : MonoBehaviour
         int price = (int) (resourceCount * (currentResource.price));
 
         if (price > m_GameManager.currentMoney)
-            return false;
+            return;
 
         m_GameManager.currentMoney -= price;
 
-        CurrentCommand = new FactoryCommand(targetCity, currentResource.type, resourceCount, timeToProduce, price);;
-        return true;
+        CurrentCommand = new FactoryCommand(targetCity, currentResource.type, resourceCount, timeToProduce + timeToShip, price);;
     }
 
     private void ProcessCommand()

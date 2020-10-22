@@ -25,12 +25,9 @@ public class City : MonoBehaviour
     public int newAspidosInfected;
     public int newDolifrontInfected;
 
-    public float dayTime = 2.0f;
-
-    public float infectionTime = 0.5f;
-
+    private float m_DayLength;
+    
     private float m_ElapsedDayTime = 0f;
-    private float m_ElapsedInfectionTime = 0f;
     
     // Start is called before the first frame update
     void Start()
@@ -41,22 +38,20 @@ public class City : MonoBehaviour
         shownAspidosInfectedHabitants = m_CurrentAspidosInfectedHabitants;
         shownDolifrontInfectedHabitants = m_CurrentDolifrontInfectedHabitants;
         shownInfectedHabitants = shownAspidosInfectedHabitants + shownDolifrontInfectedHabitants;
+
+        m_DayLength = GameObject.Find("GameManager").GetComponent<GameManager>().dayLength;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (m_ElapsedDayTime > dayTime)
+        if (m_ElapsedDayTime > m_DayLength)
         {
             m_ElapsedDayTime = 0f;
             shownAspidosInfectedHabitants = m_CurrentAspidosInfectedHabitants;
             shownDolifrontInfectedHabitants = m_CurrentDolifrontInfectedHabitants;
-            shownInfectedHabitants = shownAspidosInfectedHabitants + shownDolifrontInfectedHabitants;
-        }
-
-        if (m_ElapsedInfectionTime > infectionTime)
-        {
-            m_ElapsedInfectionTime = 0;
+            shownInfectedHabitants = shownAspidosInfectedHabitants + shownDolifrontInfectedHabitants
+                ;
             if (m_CurrentInfectedHabitants < totalHabitants)
             {
                 m_CurrentAspidosInfectedHabitants += newAspidosInfected;
@@ -70,7 +65,6 @@ public class City : MonoBehaviour
         }
         
         m_ElapsedDayTime += Time.deltaTime;
-        m_ElapsedInfectionTime += Time.deltaTime;
     }
     
     public void AddCommandResources(int resourceQuantity, EGameResourceType resourceType)
@@ -86,6 +80,12 @@ public class City : MonoBehaviour
             default:
                 throw new ArgumentOutOfRangeException(nameof(resourceType), resourceType, null);
         }
+    }
+
+    public bool CheckWinCondition()
+    {
+        return aspidos.quantity >= m_CurrentAspidosInfectedHabitants &&
+               dolifront.quantity >= m_CurrentDolifrontInfectedHabitants;
     }
 
     private void OnMouseDown()

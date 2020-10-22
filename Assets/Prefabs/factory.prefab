@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1035523314777871958}
   - component: {fileID: 1035523314777871960}
   - component: {fileID: 8834226834973820121}
+  - component: {fileID: 5511198770469352784}
   m_Layer: 0
   m_Name: factory
   m_TagString: Untagged
@@ -72,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 0eb3a73b03ee54c4987e943b72011ee7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6fb8cef9a6f349c4d8978826b617207a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -105,6 +106,7 @@ MonoBehaviour:
   aspidosTimeToProduce: 1
   dolifrontPrice: 1
   dolifrontTimeToProduce: 1
+  timeToShip: 2
 --- !u!61 &8834226834973820121
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -131,3 +133,22 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 4, y: 3.84}
   m_EdgeRadius: 0
+--- !u!95 &5511198770469352784
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1035523314777871956}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c77c00a0d671bc04d8458521efd5f193, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

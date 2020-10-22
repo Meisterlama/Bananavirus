@@ -73,25 +73,18 @@ public class Supplier : MonoBehaviour
         }
     }
 
-    public bool MakeCommand(Factory targetFactory, int aspiniumQuantity, int doliniumQuantity)
+    public void MakeCommand(Factory targetFactory, int aspiniumQuantity, int doliniumQuantity)
     {
-        //,
-        // Mathf.Max(aspiniumCount * (m_CurrentSupplier.aspinium.timeToProduce),
-        //     doliniumCount * (m_CurrentSupplier.dolinium.timeToProduce)),
-        // (int) (aspiniumCount * (m_CurrentSupplier.aspinium.price) +
-        //        doliniumCount * (m_CurrentSupplier.dolinium.price)
-
+        if (aspiniumQuantity + doliniumQuantity == 0) return;
         float timeToProduce =
             Mathf.Max(aspiniumQuantity * (aspinium.timeToProduce), doliniumQuantity * (dolinium.timeToProduce));
         int price = (int) (aspiniumQuantity * (aspinium.price) + doliniumQuantity * (dolinium.price));
 
-        if (price > m_GameManager.currentMoney)
-            return false;
+        if (price > m_GameManager.currentMoney) return;
 
         m_GameManager.currentMoney -= price;
 
-        CurrentCommand = new SupplierCommand(targetFactory, aspiniumQuantity, doliniumQuantity, timeToProduce, price);
-        return true;
+        CurrentCommand = new SupplierCommand(targetFactory, aspiniumQuantity, doliniumQuantity, timeToProduce + timeToShip, price);
     }
 
     private void ProcessCommand()

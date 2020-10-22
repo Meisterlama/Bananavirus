@@ -1,15 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    public PlayerPrefs SaveState;
     
     public GameObject factoriesParent;
     public GameObject citiesParent;
     
     [HideInInspector]
     public List<Factory> factories;
+    
     [HideInInspector]
     public List<City> cities;
 
@@ -20,7 +23,8 @@ public class GameManager : MonoBehaviour
     [HideInInspector]
     public int currentMoney;
     
-    private float m_ElapsedTime;
+    [HideInInspector]
+    public float elapsedTime;
     // Start is called before the first frame update
     void Start()
     {
@@ -39,6 +43,27 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        bool doWin = true;
+        foreach (var  city in cities)
+        {
+            if (!city.CheckWinCondition())
+            {
+                doWin = false;
+                break;
+            }
+        }
+
+        if (doWin)
+        {
+            PlayerPrefs.SetInt("LastLevel", SceneManager.GetActiveScene().buildIndex);
+            SceneManager.LoadScene(1);
+        }
+        if (elapsedTime > gameLength)
+        {
+            PlayerPrefs.SetInt("LastLevel", SceneManager.GetActiveScene().buildIndex);
+            SceneManager.LoadScene(2);
+        }
+
+        elapsedTime += Time.deltaTime;
     }
 }

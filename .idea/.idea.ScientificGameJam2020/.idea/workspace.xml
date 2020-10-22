@@ -23,40 +23,54 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="53141c69-0ced-446a-be4f-a558ffe24a4b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/MainMenu.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/MainMenu.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Sans-titre---12.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Sans-titre---12.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Sprites/bouton-jouer.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Sprites/bouton-jouer.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/mainMenu.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/mainMenu.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ScientificGameJam2020/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ScientificGameJam2020/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.ScientificGameJam2020/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ScientificGameJam2020/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ScientificGameJam2020/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ScientificGameJam2020/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/City.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/City.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Supply.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Supply.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/UI.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/UI.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/factory.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/factory.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level1.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level2.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level2.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level2.unity.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level2.unity.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/City.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/City.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Factory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Factory.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MainMenu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MainMenu.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Supplier.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Supplier.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/UIScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UIScript.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/carte-fond.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/carte-fond.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/ville.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/ville.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Fonts/pixelmix SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Fonts/pixelmix SDF.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Fonts/pixelmix_bold SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Fonts/pixelmix_bold SDF.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/mainMenu.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/mainMenu.cs.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="ChangesViewManager">
+    <option name="groupingKeys">
+      <option value="directory" />
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Factory.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/canvamanager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/MainMenu.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameManager.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://D:/DEV/GameJam/ScientificGameJam2020/ProjectSettings/GraphicsSettings.asset" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/A4546799-A4AB-4267-88E4-204C69507924/27/8ae5761e/SceneManager.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/63DD8BF9-8CFA-4BA9-85AF-735EF1A56BA9/de/544df211/List`1.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://D:/DEV/GameJam/ScientificGameJam2020/ProjectSettings/EditorBuildSettings.asset" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameResource.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://D:/DEV/GameJam/ScientificGameJam2020/ProjectSettings/EditorBuildSettings.asset" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -64,12 +78,13 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/CameraController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/GameResources.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/GameResource.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Supplier.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Factory.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Supplier.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/City.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/MainMenu.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UIScript.cs" />
+        <option value="$PROJECT_DIR$/Assets/canvamanager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/MainMenu.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" />
       </list>
     </option>
   </component>
@@ -85,7 +100,7 @@
     <property name="Discover.Launch.Via.Unity" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="settings.editor.selected.configurable" value="ReSpellerSettingsId" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.editor" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
@@ -126,7 +141,8 @@
       <updated>1602876278010</updated>
       <workItem from="1602876284067" duration="795000" />
       <workItem from="1602877378771" duration="12193000" />
-      <workItem from="1602918619162" duration="62410000" />
+      <workItem from="1602918619162" duration="74195000" />
+      <workItem from="1603352162493" duration="719000" />
     </task>
     <task id="LOCAL-00001" summary="Near completion">
       <created>1603004387012</created>
@@ -156,6 +172,7 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="LOCAL_CHANGES_DETAILS_PREVIEW_SHOWN" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="Near completion" />
     <option name="LAST_COMMIT_MESSAGE" value="Near completion" />
@@ -182,11 +199,15 @@
     </state>
     <state x="-1193" y="244" key="RiderGenerateDialog/0.0.1839.1080/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1602972344124" />
     <state x="696" y="253" key="RiderGenerateDialog/0.0.1839.1080/-1920.0.1920.1040@0.0.1839.1080" timestamp="1602942907339" />
-    <state x="420" y="185" key="SettingsEditor" timestamp="1602935410606">
-      <screen x="0" y="0" width="1839" height="1080" />
+    <state x="-1482" y="178" key="SettingsEditor" timestamp="1603053910950">
+      <screen x="-1920" y="0" width="1920" height="1040" />
     </state>
-    <state x="-1482" y="178" key="SettingsEditor/0.0.1839.1080/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1602888185884" />
+    <state x="-1482" y="178" key="SettingsEditor/0.0.1839.1080/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1603053910950" />
     <state x="420" y="185" key="SettingsEditor/0.0.1839.1080/-1920.0.1920.1040@0.0.1839.1080" timestamp="1602935410606" />
+    <state x="-1828" y="92" width="1736" height="856" key="VCS.FileHistoryDialog" timestamp="1603007860634">
+      <screen x="-1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="-1828" y="92" width="1736" height="856" key="VCS.FileHistoryDialog/0.0.1839.1080/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1603007860634" />
     <state x="-1368" y="253" key="Vcs.Push.Dialog.v2" timestamp="1603004389753">
       <screen x="-1920" y="0" width="1920" height="1040" />
     </state>
